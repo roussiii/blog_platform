@@ -1,1 +1,11 @@
-<h1>SHOW</h1>
+<h1>Viewing Post</h1>
+<div class="view-post-title">
+  <h2> <%= @post.title %> </h2>
+</div>
+<div class="view-post content">
+  <p> <%= @post.content %> </p>
+</div>
+<div class="view-post-edit">
+  <%= link_to "Edit Post", edit_post_path %>
+</div>
+

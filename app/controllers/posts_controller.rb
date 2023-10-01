@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   def index
-    # @posts = Post.all
+    @posts = Post.all
   end
 
   def show
-    # @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -14,9 +14,22 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params_post)
     if @post.save
-      redirect_to @post
+      redirect_to @post, notice: "Post was successfully created."
     else
       render :new
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id]) # find the post
+    if @post.update(params_post)
+      redirect_to @post, notice: "Post was successfully updated."
+    else
+      render :edit
     end
   end
 

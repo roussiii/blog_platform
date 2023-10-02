@@ -1,3 +1,14 @@
 <h1>Viewing All Posts</h1>
+<% @posts.each do |post| %>
+  <div class="view-post-title">
+    <h2> <%= post.title %> </h2>
+  </div>
+  <div class="view-post content">
+    <p> <%= post.content %> </p>
+  </div>
+  <div class="view-post-edit">
+    <%= link_to "Edit Post", edit_post_path(post) %>
+  </div>
+<% end %>
 
 <%= link_to "Create new post", new_post_path %>
